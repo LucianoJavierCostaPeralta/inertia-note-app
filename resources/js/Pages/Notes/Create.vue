@@ -1,19 +1,13 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link, useForm } from '@inertiajs/inertia-vue3';
-const props = defineProps({
-    note: Object
-});
 
 const form = useForm({
-    excerpt:props.note.excerpt,
-    content:props.note.content
+    excerpt: '',
+    content:''
 });
 
-const submit = () => form.put(route('notes.update',props.note.id), form);
-
-const destroy = () => confirm('Are you sure?')?form.delete(route('notes.destroy',props.note.id)) : null;
-
+const submit = () => form.post(route('notes.store'), form);
 
 </script>
 
@@ -31,10 +25,10 @@ const destroy = () => confirm('Are you sure?')?form.delete(route('notes.destroy'
                     <div class="md:col-span-1 ">
                         <div class="px-4 sm:px-0">
                             <h3 class="text-lg text-gray-900">
-                                Edit note
+                                Create note
                             </h3>
                             <p class="text-sm text-gray-600">
-                                If you edit you will not be able to return to the previous state.
+                                After creating, you will be able to edit the note.
                             </p>
                         </div>
                     </div>
@@ -58,15 +52,7 @@ const destroy = () => confirm('Are you sure?')?form.delete(route('notes.destroy'
                                 ></textarea>
                                 <button
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
-                                >Edit</button>
-
-                                <hr class="my-6">
-
-                                <a class="text-red-500 hover:text-red-700 font-bold py-2 px-4 rounded-md"
-                                   href="#"
-                                   @click.prevent="destroy">
-                                    Delete note
-                                </a>
+                                >Save</button>
                             </form>
                         </div>
                     </div>

@@ -36,7 +36,7 @@ defineProps({
 
                             <hr class="mt-6 mb-6" />
 
-                            <Link  class="link p-2 rounded-md" :href="route('notes.index')">
+                            <Link  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md " :href="route('notes.index')">
                                 Back to list
                             </Link>
                         </div>
@@ -47,16 +47,5 @@ defineProps({
     </AppLayout>
 </template>
 
-<style scoped>
-    .link {
-        background-color: #2f50ab;
-        color: #fff;
-        text-transform: uppercase;
-    }
-
-    .link:hover {
-        background-color: #4a73e2;
-    }
-</style>
 
 

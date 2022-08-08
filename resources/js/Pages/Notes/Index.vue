@@ -30,7 +30,11 @@ defineProps({
                     </div>
                     <div class="md:col-span-2 mt-5 md:mt-0">
                         <div class="shadow bg-white md:rounded-md p-4">
-                            <table>
+                            <Link :href="route('notes.create')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md ">
+                                Add new
+                            </Link>
+
+                            <table class="my-4">
                                 <tr v-for="note in notes" :key="note.id">
                                     <td class="border px-4 py-2">
                                         {{ note.excerpt}}
@@ -57,9 +61,10 @@ defineProps({
 
 <style scoped>
 
-    .edit{
+    .edit {
         color: #1d5123;
     }
+
     .view {
         color: #ab2f9b;
     }
